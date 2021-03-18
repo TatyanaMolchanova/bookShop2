@@ -1,0 +1,45 @@
+<p>CART</p>
+
+<div *ngIf="itemsInCart.length > 0; else cartIsEmpty">
+  <form class="sort" *ngIf="itemsInCart.length > 0">
+    <div>
+      <mat-form-field appearance="fill">
+        <mat-label>Filters</mat-label>
+        <mat-select [(ngModel)]="sortByParams" name="param">
+          <mat-option *ngFor="let param of sortParams" [value]="param.value">
+            {{param.viewValue}}
+          </mat-option>
+        </mat-select>
+      </mat-form-field>
+    </div>
+
+    <div *ngIf="sortByParams">
+      <section class="example-section">
+        <mat-checkbox color="primary" class="example-margin"
+                      [(ngModel)]="ascending" name="ascendingOrder">Ascending order</mat-checkbox>
+      </section>
+    </div>
+  </form>
+
+<!--  <app-cart-item *ngFor="let item of itemsInCart | orderBy : sortByParams : ascending"></app-cart-item>-->
+  <div *ngFor="let item of itemsInCart | orderBy : sortByParams : ascending">
+    <ul appHighlight>
+      <li>
+        <div>Book title: {{item?.name}}</div>
+        <div [ngClass]="'price'" [ngStyle]="{'font-size':'20px'}">Price: {{item?.price}}</div>
+        <div>Book quantity: {{item?.howMuchIsAddedToCart}}
+          <button mat-mini-fab color="primary" (click)="addBookExample(item)">+</button>
+          <button mat-mini-fab color="primary" (click)="removeBookExample(item)">-</button>
+        </div>
+        <button mat-raised-button color="accent" (click)="removeBook(item)">Remove</button>
+      </li>
+    </ul>
+  </div>
+
+  <p appChangeStyle>Total Items in Cart: {{ this.totalItemsAmountInCart }}</p>
+  <p [appChangeStyle]="color">Total Price: {{ this.totalPriceInCart }}</p>
+</div>
+
+<ng-template #cartIsEmpty>
+  <p>Cart is empty</p>
+</ng-template>

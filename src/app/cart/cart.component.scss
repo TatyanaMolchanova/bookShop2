@@ -1,0 +1,10 @@
+.sort {
+  .mat-form-field {
+    background: rebeccapurple;
+  }
+
+  ::ng-deep .mat-checkbox-inner-container {
+    border: 1px solid rebeccapurple;
+  }
+
+}

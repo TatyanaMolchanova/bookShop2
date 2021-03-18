@@ -1,0 +1,42 @@
+<mat-card>
+  <span matBadge="{{cartItemsNumber}}"
+        matBadgeOverlap="false"
+    [routerLink]="['/cart']">Items in Cart</span>
+</mat-card>
+
+<!--<mat-card>-->
+<!--  <mat-card-title>Books for Sale</mat-card-title>-->
+
+<!--  <mat-accordion>-->
+<!--    <mat-expansion-panel>-->
+<!--      -->
+<!--    </mat-expansion-panel>-->
+<!--  </mat-accordion>-->
+
+
+<!--</mat-card>-->
+
+<!--<h2>My Books</h2>-->
+
+<div *ngIf="bookService.getBooks(); else loading">
+  <div class="book"
+    *ngFor="let book of bookService.getBooks() | async">
+    <ul>
+      <li [routerLink]="['/product', book.id]">{{ book.name }}</li>
+      <li>{{ book.description }}</li>
+      <li>{{ book.category | uppercase}}</li>
+      <li>Was created: {{ book.createDate | date: 'mediumDate' }}</li>
+    </ul>
+    <strong>Price: {{ book.price | currency: 'UAH':'symbol-narrow' }}</strong>
+    <div>Is available: {{ book.isAvailable ? 'Yes' : 'No' }}</div>
+
+    <button [disabled]="!book.isAvailable"
+      (click)="buy(book)">Buy</button>
+  </div>
+</div>
+
+<ng-template #loading>
+  <h3>There are no books</h3>
+</ng-template>
+
+
