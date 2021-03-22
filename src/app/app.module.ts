@@ -14,6 +14,8 @@ import { OrderByPipe } from './shared/pipes/order-by.pipe';
 import { HighlightDirective } from './shared/directives/highlight.directive';
 import { ChangeStyleDirective } from './shared/directives/change-style.directive';
 import { BookDetailsComponent } from './book-details/book-details.component';
+import { OrderComponent } from './order/order.component';
+import { OrderDialogComponent } from './dialog/order-dialog/order-dialog.component';
 
 @NgModule({
   declarations: [
@@ -25,7 +27,9 @@ import { BookDetailsComponent } from './book-details/book-details.component';
     OrderByPipe,
     HighlightDirective,
     ChangeStyleDirective,
-    BookDetailsComponent
+    BookDetailsComponent,
+    OrderComponent,
+    OrderDialogComponent
   ],
   imports: [
     BrowserModule,

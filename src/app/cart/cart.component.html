@@ -38,6 +38,10 @@
 
   <p appChangeStyle>Total Items in Cart: {{ this.totalItemsAmountInCart }}</p>
   <p [appChangeStyle]="color">Total Price: {{ this.totalPriceInCart }}</p>
+
+  <button mat-raised-button color="primary"
+    [routerLink]="['/order']"
+    (click)="makeOrder()">Make order</button>
 </div>
 
 <ng-template #cartIsEmpty>

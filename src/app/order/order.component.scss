@@ -1,0 +1,15 @@
+.example-radio-group {
+  display: flex;
+  flex-direction: column;
+  margin: 15px 0;
+  background: gray;
+}
+
+.example-radio-button {
+  margin: 5px;
+}
+
+.mat-raised-button.mat-primary.mat-button-disabled {
+  background: grey;
+  color: rgba(255,255,255, .7);
+}

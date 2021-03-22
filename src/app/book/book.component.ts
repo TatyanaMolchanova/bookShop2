@@ -14,7 +14,7 @@ import { FormGroup, FormControl } from '@angular/forms';
   templateUrl: './book.component.html',
   styleUrls: ['./book.component.scss']
 })
-export class BookComponent implements OnInit, AfterContentChecked {
+export class BookComponent implements OnInit {
 
   books: BookModel[] = [];
   cartItemsNumber: number = 0;
@@ -23,44 +23,15 @@ export class BookComponent implements OnInit, AfterContentChecked {
 
   constructor(public bookService: BookService) { }
 
-  ngOnInit() {
-    // this.getBooks();
+  ngOnInit(): void {
     // this.bookService.getTotalAmountInCart$.subscribe((totalAmount) => {
-    //
-    //   console.log('totalAmount', totalAmount);
     //   this.cartItemsNumber = totalAmount;
     // });
-    //
-    //
-    //
-    //
-    // // this.cartItemsNumber = this.bookService.getTotalAmountInCartSubject$.next();
-    //
-    // // this.bookService.countTotalAmountInCart(totalAmount)
-    // console.log('this.cartItemsNumber', this.cartItemsNumber);
-  }
-
-  ngAfterContentChecked(): void {
-    // this.itemsInCart = this.bookService.boughtBooksList.map(item => {
-    //   // console.log('item.how', item.howMuchIsAddedToCart);
-    //   this.cartItemsNumber = item.howMuchIsAddedToCart;
-    // });
-
-    // if (this.bookService.boughtBooksList.length > 0) {
-    //   this.howMuchIsAddedToCart = this.bookService.boughtBooksList.reduce((prev, curr) => {
-    //     console.log(prev, curr);
-    //     console.log('sum', prev.howMuchIsAddedToCart + curr.howMuchIsAddedToCart);
-    //     return prev.howMuchIsAddedToCart + curr.howMuchIsAddedToCart;
-    //   });
-    //   console.log('this.itemsInCart', this.itemsInCart);
-    // }
-
   }
 
   buy(book: BookModel) {
     book.howMuchIsAddedToCart++;
     this.bookService.addBook(book);
-    console.log('buy');
   }
 
   getBooks(): void {

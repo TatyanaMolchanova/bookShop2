@@ -1,0 +1,34 @@
+<p>Information about Your Order</p>
+
+<form [formGroup]="orderForm" (ngSubmit)="onSubmit()">
+
+  <div>
+    <label>Enter delivery address:
+      <input type="text" formControlName="address">
+    </label>
+  </div>
+
+  <div>
+    <label>Payment method:
+      <mat-radio-group class="example-radio-group" aria-label="Select an Payment method">
+        <mat-radio-button class="example-radio-button" value="cash"
+        formControlName="payment" name="payment" ngDefaultControl>Cash</mat-radio-button>
+        <mat-radio-button class="example-radio-button" value="card"
+        formControlName="payment" name="payment" ngDefaultControl>Card</mat-radio-button>
+        <mat-radio-button class="example-radio-button" value="online"
+        formControlName="payment" name="payment" ngDefaultControl>Online</mat-radio-button>
+      </mat-radio-group>
+    </label>
+  </div>
+
+  <div>
+    <label>Your Comments to Order:
+      <input type="text" formControlName="comments">
+    </label>
+  </div>
+
+  <button mat-raised-button color="primary" type="submit"
+    [disabled]="!orderForm.valid"
+    (click)="orderIsAccepted()">Submit</button>
+
+</form>

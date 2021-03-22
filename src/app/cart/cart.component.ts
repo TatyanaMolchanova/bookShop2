@@ -19,6 +19,7 @@ export class CartComponent implements OnInit, AfterContentChecked {
   sortByParams: string;
   ascending: boolean = false;
   color: string = '#fff';
+  isCartEmpty: boolean;
 
   sortParams = [
     {value: 'name', viewValue: 'By name'},
@@ -64,5 +65,11 @@ export class CartComponent implements OnInit, AfterContentChecked {
   removeBook(item) {
     this.removeBookExample(item);
     this.bookService.removeBookFromCart(item.id);
+  }
+
+  makeOrder() {
+    const order = this.itemsInCart;
+    console.log('order', order);
+    this.bookService.boughtBooksList = [];
   }
 }

@@ -1,4 +1,21 @@
-<h1 #appTitle>{{ title }}</h1>
+<div *ngIf="!isAdminPage">
+  <h1 #appTitle>{{ title }}</h1>
+
+  <nav>
+    <ul>
+      <li [routerLink]="['/']">Main</li>
+    </ul>
+  </nav>
+
+  <!--add ngrx counter-->
+  <mat-card>
+  <span matBadge="{{cartItemsNumber}}"
+        matBadgeOverlap="false"
+        [routerLink]="['/cart']">Items in Cart</span>
+  </mat-card>
+</div>
+
+
 <!--<app-book></app-book>-->
 <router-outlet></router-outlet>
 <!--<app-cart></app-cart>-->
