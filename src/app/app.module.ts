@@ -16,6 +16,7 @@ import { ChangeStyleDirective } from './shared/directives/change-style.directive
 import { BookDetailsComponent } from './book-details/book-details.component';
 import { OrderComponent } from './order/order.component';
 import { OrderDialogComponent } from './dialog/order-dialog/order-dialog.component';
+import { AuthDialogComponent } from './dialog/auth-dialog/auth-dialog.component';
 
 @NgModule({
   declarations: [
@@ -29,7 +30,8 @@ import { OrderDialogComponent } from './dialog/order-dialog/order-dialog.compone
     ChangeStyleDirective,
     BookDetailsComponent,
     OrderComponent,
-    OrderDialogComponent
+    OrderDialogComponent,
+    AuthDialogComponent
   ],
   imports: [
     BrowserModule,
