@@ -5,7 +5,6 @@ export interface BookModel {
   price: number;
   category: BookCategory;
   createDate: Date;
-  // createDate: number;
   isAvailable: boolean;
   howMuchIsAddedToCart: number;
 }
@@ -19,8 +18,9 @@ export enum BookCategory {
   Childish = 'Childish'
 }
 
-export interface ConfigOptions {
+export interface Post {
+  body: string;
   id: number;
-  login: string;
-  email: string;
+  title: string;
+  userId: number;
 }

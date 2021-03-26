@@ -21,6 +21,8 @@ import { StoreModule } from '@ngrx/store';
 import { bookCounterReducer } from './shared/store/bookCounter.reducer';
 import { StoreDevtoolsModule } from '@ngrx/store-devtools';
 import { environment } from '../environments/environment';
+import { PostsComponent } from './posts/posts.component';
+import {HttpClientModule} from '@angular/common/http';
 
 @NgModule({
   declarations: [
@@ -35,7 +37,8 @@ import { environment } from '../environments/environment';
     BookDetailsComponent,
     OrderComponent,
     OrderDialogComponent,
-    AuthDialogComponent
+    AuthDialogComponent,
+    PostsComponent
   ],
   imports: [
     BrowserModule,
@@ -49,6 +52,7 @@ import { environment } from '../environments/environment';
       maxAge: 25,
       logOnly: environment.production,
     }),
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent]
