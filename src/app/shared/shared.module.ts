@@ -10,6 +10,7 @@ import { MatSelectModule } from '@angular/material/select';
 import { MatCheckboxModule } from '@angular/material/checkbox';
 import { MatRadioModule } from '@angular/material/radio';
 import { MatDialogModule } from '@angular/material/dialog';
+import { MatIconModule } from '@angular/material/icon';
 
 @NgModule({
   declarations: [],
@@ -24,7 +25,8 @@ import { MatDialogModule } from '@angular/material/dialog';
     MatSelectModule,
     MatCheckboxModule,
     MatRadioModule,
-    MatDialogModule
+    MatDialogModule,
+    MatIconModule
   ],
   imports: [
     CommonModule,
@@ -37,7 +39,8 @@ import { MatDialogModule } from '@angular/material/dialog';
     MatSelectModule,
     MatCheckboxModule,
     MatRadioModule,
-    MatDialogModule
+    MatDialogModule,
+    MatIconModule
   ]
 })
 export class SharedModule { }

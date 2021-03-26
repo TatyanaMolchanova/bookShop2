@@ -1,22 +1,9 @@
-<!--<mat-card>-->
-<!--  <span matBadge="{{cartItemsNumber}}"-->
-<!--        matBadgeOverlap="false"-->
-<!--    [routerLink]="['/cart']">Items in Cart</span>-->
-<!--</mat-card>-->
-
-<!--<mat-card>-->
-<!--  <mat-card-title>Books for Sale</mat-card-title>-->
-
-<!--  <mat-accordion>-->
-<!--    <mat-expansion-panel>-->
-<!--      -->
-<!--    </mat-expansion-panel>-->
-<!--  </mat-accordion>-->
-
-
-<!--</mat-card>-->
-
-<!--<h2>My Books</h2>-->
+<mat-card>
+  <div matBadge="{{ count$ | async }}"
+       class="cart-badge"
+       matBadgeOverlap="false"
+       [routerLink]="['/cart']">Items in Cart</div>
+</mat-card>
 
 <div *ngIf="bookService.getBooks(); else loading">
   <div class="book"

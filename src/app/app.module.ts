@@ -17,6 +17,10 @@ import { BookDetailsComponent } from './book-details/book-details.component';
 import { OrderComponent } from './order/order.component';
 import { OrderDialogComponent } from './dialog/order-dialog/order-dialog.component';
 import { AuthDialogComponent } from './dialog/auth-dialog/auth-dialog.component';
+import { StoreModule } from '@ngrx/store';
+import { bookCounterReducer } from './shared/store/bookCounter.reducer';
+import { StoreDevtoolsModule } from '@ngrx/store-devtools';
+import { environment } from '../environments/environment';
 
 @NgModule({
   declarations: [
@@ -39,7 +43,12 @@ import { AuthDialogComponent } from './dialog/auth-dialog/auth-dialog.component'
     BrowserAnimationsModule,
     SharedModule,
     ReactiveFormsModule,
-    FormsModule
+    FormsModule,
+    StoreModule.forRoot({ count: bookCounterReducer }),
+    StoreDevtoolsModule.instrument({
+      maxAge: 25,
+      logOnly: environment.production,
+    }),
   ],
   providers: [],
   bootstrap: [AppComponent]

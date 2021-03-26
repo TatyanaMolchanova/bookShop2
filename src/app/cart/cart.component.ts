@@ -1,11 +1,10 @@
 import {
   Component,
   OnInit,
-  DoCheck, AfterViewChecked, AfterViewInit, AfterContentChecked, OnChanges
+  AfterContentChecked
 } from '@angular/core';
 import {BookModel} from '../shared/interfaces';
 import {BookService} from '../shared/services/book.service';
-import {SharedModule} from '../shared/shared.module';
 
 @Component({
   selector: 'app-cart',
